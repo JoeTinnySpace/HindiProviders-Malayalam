@@ -33,7 +33,7 @@ class MultiMoviesProvider : MainAPI() { // all providers must be an instance of 
         "$mainUrl/trending/" to "Trending",
         "$mainUrl/genre/science-fiction/" to "Science Fiction",
         "$mainUrl/genre/action/" to "Action",
-        "$mainUrl/genre/adventure/" to "Adventure",
+        "$mainUrl/genre/adventure/" to "Adventure"
 //        "$mainUrl/genre/netflix/" to "Netfilx",
 //        "$mainUrl/genre/sony-liv/" to "Sony Live",
 //        "$mainUrl/genre/zee-5/" to "Zee5",
