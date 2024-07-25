@@ -19,14 +19,9 @@ class Bolly2Tolly : MainAPI() { // all providers must be an instance of MainAPI
     )
 
     override val mainPage = mainPageOf(
-        "$mainUrl/" to "Latest ",
-        "$mainUrl/category/english-movies/" to "English",
-        "$mainUrl/category/hindi-movies/" to "Hindi",
-        "$mainUrl/category/telugu-movies/" to "Telugu",
-        "$mainUrl/category/tamil-movies/" to "Tamil",
-        "$mainUrl/category/kannada-movies/" to "Kannada",
         "$mainUrl/category/malayalam-movies/" to "Malayalam",
-        "$mainUrl/category/bengali-movies/" to "Bengali"
+        "$mainUrl/category/tamil-movies/" to "Tamil",
+        "$mainUrl/" to "Latest "
 
 
     )

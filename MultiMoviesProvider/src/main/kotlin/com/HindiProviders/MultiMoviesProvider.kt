@@ -28,23 +28,16 @@ class MultiMoviesProvider : MainAPI() { // all providers must be an instance of 
         //val headers= mapOf("User-Agent" to "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0", "X-Requested-With" to "XMLHttpRequest")
     }
     override val mainPage = mainPageOf(
-        "$mainUrl/trending/" to "Trending",
-        "$mainUrl/genre/bollywood-movies/" to "Bollywood Movies",
-        "$mainUrl/genre/hollywood/" to "Hollywood Movies",
+
         "$mainUrl/genre/south-indian/" to "South Indian Movies",
-        "$mainUrl/genre/punjabi/" to "Punjabi Movies",
-        "$mainUrl/genre/amazon-prime/" to "Amazon Prime",
-        "$mainUrl/genre/disney-hotstar/" to "Disney Hotstar",
-        "$mainUrl/genre/jio-ott/" to "Jio OTT",
-        "$mainUrl/genre/netflix/" to "Netfilx",
-        "$mainUrl/genre/sony-liv/" to "Sony Live",
-        "$mainUrl/genre/k-drama/" to "KDrama",
-        "$mainUrl/genre/zee-5/" to "Zee5",
-        "$mainUrl/genre/anime-hindi/" to "Anime Series",
-        "$mainUrl/genre/anime-movies/" to "Anime Movies",
-        "$mainUrl/genre/cartoon-network/" to "Cartoon Network",
-        "$mainUrl/genre/disney-channel/" to "Disney Channel",
-        "$mainUrl/genre/hungama/" to "Hungama",
+        "$mainUrl/trending/" to "Trending",
+        "$mainUrl/genre/science-fiction/" to "Science Fiction",
+        "$mainUrl/genre/action/" to "Action"
+//        "$mainUrl/genre/adventure/" to "Adventure",
+//        "$mainUrl/genre/netflix/" to "Netfilx",
+//        "$mainUrl/genre/sony-liv/" to "Sony Live",
+//        "$mainUrl/genre/zee-5/" to "Zee5",
+//        "$mainUrl/genre/disney-channel/" to "Disney Channel"
     )
 
     override suspend fun getMainPage(
