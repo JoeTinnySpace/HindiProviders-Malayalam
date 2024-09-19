@@ -1,6 +1,6 @@
 package com.HindiProviders
 
-import android.util.Log
+//import android.util.Log
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.utils.ExtractorLink
@@ -11,7 +11,7 @@ import com.lagradost.nicehttp.NiceResponse
 import okhttp3.FormBody
 
 class MultiMoviesProvider : MainAPI() { // all providers must be an instance of MainAPI
-    override var mainUrl = "https://multimovies.online"
+    override var mainUrl = "https://multimovies.sbs"
     override var name = "MultiMovies"
     override val hasMainPage = true
     override var lang = "hi"
@@ -251,7 +251,6 @@ class MultiMoviesProvider : MainAPI() { // all providers must be an instance of 
         callback: (ExtractorLink) -> Unit
     ): Boolean {
         val req = app.get(data).document
-        Log.d("Phisher Test Load url", data)
         req.select("ul#playeroptionsul li").map {
             Triple(
                 it.attr("data-post"),
@@ -274,10 +273,24 @@ class MultiMoviesProvider : MainAPI() { // all providers must be an instance of 
                 val link = source.substringAfter("\"").substringBefore("\"")
                 when {
                     !link.contains("youtube") -> {
-                        Log.d("Phisher Test Load", link)
+                        if(link.contains("gdmirrorbot.nl"))
+                            {
+                            app.get(link).document.select("ul#videoLinks li").map {
+                            @Suppress("NAME_SHADOWING") val link=it.attr("data-link")
+                            loadExtractor(link,referer = mainUrl,subtitleCallback, callback)
+                            }
+                        }
+                        else
+                            if (link.contains("deaddrive.xyz"))
+                            {
+                                app.get(link).document.select("ul.list-server-items > li").map {
+                                    val server = it.attr("data-video")
+                                    loadExtractor(server,referer = mainUrl,subtitleCallback, callback)
+                                }
+                            }
+                        else
                         loadExtractor(link, referer = mainUrl, subtitleCallback, callback)
                     }
-
                     else -> return@apmap
                 }
             }

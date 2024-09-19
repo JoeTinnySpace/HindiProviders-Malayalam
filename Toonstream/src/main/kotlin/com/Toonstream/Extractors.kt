@@ -1,26 +1,29 @@
 package com.Toonstream
 
-import android.util.Log
+//import android.util.Log
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.lagradost.cloudstream3.ErrorLoadingException
-import com.lagradost.cloudstream3.SubtitleFile
 import com.lagradost.cloudstream3.app
 import com.lagradost.cloudstream3.extractors.DoodLaExtractor
 import com.lagradost.cloudstream3.extractors.Filesim
 import com.lagradost.cloudstream3.extractors.StreamSB
 import com.lagradost.cloudstream3.extractors.StreamWishExtractor
 import com.lagradost.cloudstream3.extractors.VidhideExtractor
-import com.lagradost.cloudstream3.extractors.helper.AesHelper
 import com.lagradost.cloudstream3.utils.ExtractorApi
 import com.lagradost.cloudstream3.utils.ExtractorLink
 import com.lagradost.cloudstream3.utils.INFER_TYPE
 import com.lagradost.cloudstream3.utils.Qualities
-import com.lagradost.cloudstream3.utils.getQualityFromName
+import com.lagradost.cloudstream3.extractors.Chillx
 
 class StreamSB8 : StreamSB() {
     override var mainUrl = "https://streamsb.net"
 }
 
+class Vidstreamxyz : Chillx() {
+    override val name = "Vidstream"
+    override val mainUrl = "https://vidstreaming.xyz"
+}
+
+/*
 open class Vidstreaming : ExtractorApi() {
     override var name = "Vidstreaming"
     override var mainUrl = "https://vidstreaming.xyz"
@@ -45,7 +48,7 @@ open class Vidstreaming : ExtractorApi() {
         val subtitle = Extractvidsub(decrypt)
         val headers =
             mapOf(
-                "accept" to "*/*",
+               "accept" to "*",
                 "accept-language" to "en-US,en;q=0.5",
                 "Origin" to mainUrl,
                 "Accept-Encoding" to "gzip, deflate, br",
@@ -86,6 +89,7 @@ open class Vidstreaming : ExtractorApi() {
         return file
     }
 }
+*/
 
 open class Streamruby : ExtractorApi() {
     override var name = "Streamruby"

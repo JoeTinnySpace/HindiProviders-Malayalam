@@ -3,8 +3,6 @@ package com.Desicinemas
 import com.lagradost.cloudstream3.plugins.CloudstreamPlugin
 import com.lagradost.cloudstream3.plugins.Plugin
 import android.content.Context
-import com.lagradost.cloudstream3.utils.ExtractorApi
-import com.lagradost.cloudstream3.utils.extractorApis
 
 @CloudstreamPlugin
 class DesicinemasPlugin: Plugin() {
@@ -13,13 +11,9 @@ class DesicinemasPlugin: Plugin() {
         val provider = DesicinemasProvider()
         registerMainAPI(provider)
         registerMainAPI(BollyzoneProvider())
-        addExtractor(Tvlogy(provider.name))
-        addExtractor(Tellygossips(provider.name))
-    }
-
-    private fun addExtractor(element: ExtractorApi) {
-        element.sourcePlugin = __filename
-        extractorApis.add(0, element)
+        registerExtractorAPI(Tvlogy((provider.name)))
+        registerExtractorAPI(Tellygossips((provider.name)))
+        registerExtractorAPI(Tvlogyflow((provider.name)))
     }
 }
 

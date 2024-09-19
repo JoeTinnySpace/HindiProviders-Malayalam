@@ -1,11 +1,12 @@
 package com.Desicinemas
 
+//import com.lagradost.api.Log
 import com.lagradost.cloudstream3.SubtitleFile
 import com.lagradost.cloudstream3.utils.ExtractorApi
 import com.lagradost.cloudstream3.utils.ExtractorLink
 import com.lagradost.cloudstream3.utils.Qualities
 
-class Tellygossips(val source:String) : ExtractorApi() {
+class Tellygossips(private val source:String) : ExtractorApi() {
     override val mainUrl = "https://flow.tellygossips.net"
     override val name = "Tellygossips"
     override val requiresReferer = false
@@ -29,7 +30,7 @@ class Tellygossips(val source:String) : ExtractorApi() {
             callback(
                 ExtractorLink(
                     source,
-                    "$name ${link.label}",
+                    name,
                     link.file ?: link.src ?: continue,
                     "",
                     Qualities.Unknown.value,
